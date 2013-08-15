@@ -1,0 +1,31 @@
+Usual approach:
+
+enum class datagram_type
+{
+    non_reliable = 0,
+    reliable = 1
+};
+
+virtual ssize_t write_datagram(const char* data, size_t size, stream::datagram_type is_reliable);
+
+Named argument approach:
+
+virtual ssize_t write_datagram(const char* data, size_t size, bool is_reliable:);
+
+and a call:
+
+write_datagram(buf, size, is_reliable: true);
+
+
+Named arguments must always be named, so the cases like this work:
+
+class rect {
+    rect(int left:, int top:, int width:, int height:);
+    rect(int left:, int top:, int right:, int bottom:);
+};
+
+rect r = rect(left: 0, top: 0, width: 200, height: 100);
+
+Compiler would have to resolve the correct method signature using argument names.
+The order in which named arguments are pushed on stack is implementation dependent, but
+most obvious method is to allocate them in order of declaration.
