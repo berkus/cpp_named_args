@@ -24,7 +24,7 @@ class rect {
     rect(int left:, int top:, int right:, int bottom:);
 };
 
-rect r = rect(left: 0, top: 0, width: 200, height: 100);
+rect r = rect(left: 0, width: 200, top: 0, height: 100);
 
 Compiler would have to resolve the correct method signature using argument names.
 The order in which named arguments are pushed on stack is implementation dependent, but
