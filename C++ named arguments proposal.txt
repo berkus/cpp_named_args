@@ -20,12 +20,17 @@ write_datagram(buf, size, is_reliable: true);
 Named arguments must always be named, so the cases like this work:
 
 class rect {
-    rect(int left:, int top:, int width:, int height:);
     rect(int left:, int top:, int right:, int bottom:);
+    // Named arguments may have default values as well
+    rect(int left: = 0, int top: = 0, int width: = 0, int height: = 0);
 };
 
-rect r = rect(left: 0, width: 200, top: 0, height: 100);
+rect r = rect(width: 200, height: 100);
+rect r2 = rect(left: 0, right: 200, top: 0, bottom: 100);
 
 Compiler would have to resolve the correct method signature using argument names.
+
+Ambiguity may arise if there are two different signatures with default values and the call site make it impossible to distinguish one signature from another. Such programs are malformed.
+
 The order in which named arguments are pushed on stack is implementation dependent, but
 most obvious method is to allocate them in order of declaration.
