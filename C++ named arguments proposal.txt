@@ -30,7 +30,9 @@ rect r2 = rect(left: 0, right: 200, top: 0, bottom: 100);
 
 Compiler would have to resolve the correct method signature using argument names.
 
-Ambiguity may arise if there are two different signatures with default values and the call site make it impossible to distinguish one signature from another. Such programs are malformed.
+Ambiguity may arise if there are two different signatures with default values
+and the call site make it impossible to distinguish one signature from another.
+Such programs are malformed.
 
-The order in which named arguments are pushed on stack is implementation dependent, but
-most obvious method is to allocate them in order of declaration.
+The order in which named arguments are pushed on stack is implementation
+dependent, but most obvious method is to allocate them in order of declaration.
