@@ -21,6 +21,8 @@ Now we can easier see what the argument is about:
 
 write_datagram(data, size, datagram_type::reliable);
 
+Problem: need to create a (scoped) enum where a simple bool would suffice.
+
 == Named argument approach ==
 
 virtual ssize_t write_datagram(const char* data, size_t size, bool is_reliable:);
@@ -29,6 +31,15 @@ and a call looks like:
 
 write_datagram(buf, size, is_reliable: true);
 
+Easier to read, no additional enums. The approach also helpful for various graphic libraries where a lot of numerical arguments is used but it's close to impossible to understand their order without reading the docs.
+
+rect(100, 200, 300, 500); // width? x coordinate? which is which?
+
+rect(left: 100, top: 200, width: 300, height: 500); // clear!
+
+Of course, there are other ways to achieve this, like fluent interfaces etc. This method seems pretty elegant to me.
+
+== More details ==
 
 Named arguments must always be named, so the cases like this work:
 
