@@ -1,4 +1,13 @@
-Usual approach:
+== Basic problem ==
+
+Having a function
+ssize_t write_datagram(char const* data, size_t size, bool is_reliable);
+
+How do we understand what a boolean parameter means at the call site without referring to the function definition?
+
+write_datagram(data, size, true); // what does true mean?
+
+== Usual approach ==
 
 enum class datagram_type
 {
@@ -8,11 +17,15 @@ enum class datagram_type
 
 virtual ssize_t write_datagram(const char* data, size_t size, stream::datagram_type is_reliable);
 
-Named argument approach:
+Now we can easier see what the argument is about:
+
+write_datagram(data, size, datagram_type::reliable);
+
+== Named argument approach ==
 
 virtual ssize_t write_datagram(const char* data, size_t size, bool is_reliable:);
 
-and a call:
+and a call looks like:
 
 write_datagram(buf, size, is_reliable: true);
 
