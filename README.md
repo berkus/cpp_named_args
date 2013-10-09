@@ -67,3 +67,7 @@ Such programs are malformed.
 
 The order in which named arguments are pushed on stack is implementation
 dependent, but most obvious method is to allocate them in order of declaration.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/berkus/cpp_named_args/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
