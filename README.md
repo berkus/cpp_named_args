@@ -1,3 +1,5 @@
+### Idea scratched
+
 ## C++ named arguments proposal
 
 Basic problem
